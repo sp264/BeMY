@@ -164,17 +164,18 @@
       padding:24px;
     }
     .overlay.show{ display:grid; }
-    .pop{
-      width:min(760px, 92vw);
-      background: rgba(20, 24, 48, .95);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:26px;
-      padding:28px 22px;
-      text-align:center;
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
+   .pop{
+  width:min(760px, 92vw);
+  max-height: 88vh;       /* ca să nu iasă din ecran */
+  overflow: auto;         /* dacă e mult conținut, face scroll */
+  background: rgba(20, 24, 48, .95);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:26px;
+  padding:28px 22px;
+  text-align:center;
+  box-shadow: var(--shadow);
+  position:relative;
+}
 
     /* popup style ca reel */
     .yay{
@@ -192,17 +193,22 @@
       color: rgba(255,255,255,.75);
       margin-bottom: 16px;
     }
-    .gifbox img{
-  width: 100%;
-  display: block;
-  height: auto;
+.gifbox{
+  width: min(520px, 92%);
+  margin: 10px auto 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  background: rgba(255,255,255,.04);
 }
 
-    .gifbox img{
-      display:block;
-      width:100%;
-      height:auto;
-    }
+.gifbox img{
+  display:block;
+  width:100%;
+  max-height: 42vh;       /* AICI e cheia */
+  object-fit: contain;    /* nu taie imaginea */
+}
     .love{
       margin-top: 6px;
       font-size: 18px;
