@@ -415,16 +415,16 @@
       }
     }
 
-    yesBtn.addEventListener("click", async () => {
-      overlay.classList.add("show");
-
-      for (let i = 0; i < 25; i++){
-        setTimeout(spawnHeart, i * 35);
-      }
-      spawnConfettiBurst(160);
-
-      await playSong();
-    });
+ yesBtn.addEventListener("click", async () => {
+  try {
+    song.currentTime = 0;
+    song.volume = 0.85;
+    await song.play();
+  } catch (err) {
+    console.log(err);
+    alert("Browserul a blocat audio. Apasă încă o dată pe YES 🔊");
+  }
+});
 
     closeBtn.addEventListener("click", () => {
       overlay.classList.remove("show");
